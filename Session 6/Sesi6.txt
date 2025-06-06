@@ -1,0 +1,34 @@
+Intro to spark
+=========================================
+Spark -> framework big data processing yang pake bahasa python
+spark -> Dataframe
+	-> implementasi lebih lanjut dari RDD
+
+
+[v] Sparkcontext
+[v] Resilient Distributed Dataset
+	-> Lazy (Dimasukin ke memory pada saat hanya dibutuhkan)
+	-> Immutable (Ga bisa Diganti")
+[v] RDD Transformation
+	[v] map
+	[v] flatmap
+	[v] filter
+	[v] sortby
+	[v] Join
+[v] RDD Actions -> ngequery/tampilin data
+	[v] collect
+	[v] Top
+	[v] mean
+	[v] min/max
+	[v] stdev
+
+====================================================
+
+1. masuk ke jupyter notebook di cloudera
+= jupyter notebook
+terus buka ctrl + click yg localhost
+
+2. file ipynb yang dari cloudera bisa buka di vscode
+3. kalo mo belajar lewat google colab
+4. kalo di vscode download librarynya dulu baru bisa
+	-> pip install pyspark

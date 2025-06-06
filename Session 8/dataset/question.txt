@@ -1,0 +1,2 @@
+Display CustomerName, CustomerExpense, SpendingCategory ("Above Average" when their expense > average spending, "Below Average" when their expense < average spending)
+Expense is obtained from all of the transaction they had

@@ -1,0 +1,38 @@
+Big Data Processing
+Session 7
+===================================================
+[v] Introduction to SchemaRDD
+	-> RDD (Resilient Distributed Dataset) -> datanya tersimpan distribusikan agar jika terjadi error atau corrupt, datanya masih ada (tidak semuanya rusak)
+	-> rdd biasanya berupa tuple
+	-> SchemaRDD: RDD yang kita bisa lakukan manipulasi query
+[] Load and Saving Data
+[] Constructing SQL Context
+[] Basic Query
+	-> Raw Query = Query biasa
+	-> Query Builder =  function query yang disediain sama spark
+
+step 1: bikin spark session
+step 2: load CSV
+step 3: masukin CSV ke tempTable
+step 4: ngequery
+
+#query builder
+step 1: cari table yang ada join
+msTransactionDetail.join(msProduct, msTransactionDetail.productID == msProduct.productID)
+
+step 2: cari yang ada group by + yang ada aggregate function
+.groupBy("TransactionID").agg(sum(msTransactionDetail.Quantity * msProduct.Price).alias("Total Revenue"))
+
+step 3: cari yang ada order by lalu kasih liat(.show())
+.orderBy("Total Revenue", ascending=False).show()
+
+
+# Query Builder
+msTransaction.join(msTransactionDetail, msTransaction.TransactionID == 
+msTransactionDetail.TransactionID).
+msTransactionDetail.join(msProduct, msTransactionDetail.ProductID == 
+msProduct.ProductID).groupBy("TransactionID", "CustomerID")
+.agg(sum(msTransactionDetail.Quantity * msProduct.Price).alias("Total 
+Revenue")).orderBy("Total Revenue", ascending=False).show()
+
+

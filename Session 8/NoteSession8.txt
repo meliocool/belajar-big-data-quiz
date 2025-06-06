@@ -1,0 +1,71 @@
+Session 8 - SparkSQL
+===========================================
+[v] Advanced Query (Subquery)
+	- Subquery adalah query yang mengambil data dari query lain
+	-
+[v] Data Visualization in Python
+	- Line
+	- Bar
+	- Pie
+	- Scatter
+
+Terminal
+
+Pindahin file ke HDFS
+hadoop fs
+= hadoop fs -copyFromLocal ./dataset /user/cloudera/data
+
+
+Query
+===============
+
+
+
+# 1. kita baca CSV 
+df_ramen = spark.read.csv("./MsRamen.csv", header=True, inferSchema=True)
+df_th = spark.read.csv("./TransactionHeader.csv", header=True, inferSchema=True)
+df_td = spark.read.csv("./TransactionDetail.csv", header=True, inferSchema=True)
+df_customer = spark.read.csv(",/MsCustomer.csv", header=True, inferSchema=True)
+df_ramen.show()
+
+#Raw SQL
+# 1. Cari expanse customer
+raw  = """
+        SELECT 
+        mc.CustomerName,
+        SUM(td.Quantity * mr.RamenPrice) AS Expense
+        FROM MsCustomer mc JOIN TransactionHeader th 
+             ON mc.CustomerId = th.CustomerId
+             JOIN TransactionDetail td 
+             ON td.TransactionId = th.TransactionId
+             JOIN MsRamen mr 
+             ON mr.RamenId = td.RamenId
+        GROUP BY CustomerName
+"""
+
+spark.sql(raw).show()
+
+# cari average expense customer
+2. Cari tau rata-rata expense customer
+
+SELECT AVG(sq.Expense) AS AverageExpanse
+        FROM
+        (SELECT 
+            mc.CustomerName,
+            SUM(td.Quantity * mr.RamenPrice) AS Expense
+            FROM MsCustomer mc JOIN TransactionHeader th 
+                 ON mc.CustomerId = th.CustomerId
+                 JOIN TransactionDetail td 
+                 ON td.TransactionId = th.TransactionId
+                 JOIN MsRamen mr 
+                 ON mr.RamenId = td.RamenId
+            GROUP BY CustomerName) AS sq
+
+spark.sql(raw).show()
+
+# CTE
+
+3.
+CASE
+WHEN Expense > AverageSpending Then
+END

@@ -1,0 +1,11 @@
+ProductID,Name,Category,Price
+PD001,Laptop,Electronics,100
+PD002,Phone,Electronics,150
+PD003,Headphones,Electronics,50
+PD004,Monitor,Electronics,200
+PD005,Keyboard,Accessories,250
+PD006,Mouse,Accessories,200
+PD007,Tablet,Electronics,300
+PD008,Smartwatch,Electronics,180
+PD009,Speaker,Accessories,120
+PD010,Charger,Accessories,30

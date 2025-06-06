@@ -1,0 +1,18 @@
+Session 9 - Data Exploration and Classification
+===============================================
+[v] Data Exploration using Spark
+[v] Handling Missing Values in Spark
+[v] Classification using Spark
+
+
+====================================================
+
+Fuel Type (Encoding)
+Diesel -> 1
+Petrol -> 2
+Hybrid -> 3
+Electric -> 4
+
+Transmission
+Automatic -> 1
+Manual -> 2
